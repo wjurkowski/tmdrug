@@ -1,0 +1,43 @@
+package ligand_structure;
+
+require Exporter;
+use vars qw(@ISA @EXPORT $VERSION);
+our @ISA = qw(Exporter);
+our @EXPORT = qw(make_ligand optimize_ligand get_partial_charges test_ligand);
+$VERSION=1.0;
+
+sub make_ligand{
+my ($ligand_name)=@_;
+my $ligand=$ligand_name."sdf";
+my $ligandmol2=$ligand_name."mol2";
+`babel -isdf $ligand -omol2 $ligandmol2`;
+}
+
+sub optimize_ligand{
+my $gamess_in=$ligand_name."in";
+my $ligand=$ligand_name."sdf";
+
+if (opt_metod=semi){
+}
+elsif(opt_metod=dft){
+}
+else{
+`touch header`;
+}
+
+`babel -isdf $ligand -ogukin $gamess_in`;
+`cat header $gamess_in > g_opt.in`;
+`rungamess g_opt.in g_opt.out`;
+`rungamess g_charges.in g_charges.out`;
+}
+
+sub get_partial_charges{
+print "pustka\n";
+}
+
+sub test_ligand{
+print "pustka\n";
+}
+
+
+

@@ -1,0 +1,18 @@
+
+stage 4
+0. definicja fragmentow do modelowania petli - automatyczne mapowanie wynikow topology prediction and ss predictions
+
+1. test the loop ranking externally and then merge it with code to produce improved receptor.ligand_loop_refine.py
+2. skonczyc mostki SS
+
+
+2. Czy da sie obliczyc same skory bez profiles dla zbioru pdfow?
+- przyklady sciagniete (Projects/7TMpipe)- zintegrowac
+
+Zintegrowac testy na IRG1 - swiezo zeby nie zapomniec
+
+
+Docking
+1. dodac vine
+2. moja wina: wybor modeli z wynikow viny
+

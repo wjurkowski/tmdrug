@@ -1,0 +1,15 @@
+7TM docking pipeline. Pipeline runs through several stages:
+
+stage 0 - run all stages one after another
+stage 1 - blast target sequence and score found templates; select final template
+stage 2 
+build core structure based on single templates; rank them and selects best models; compares scores of best models and selects best of the best
+stage 3
+build core structure based on specified multiple templates; ranks all models and selects 
+stage 4
+model loops and selects best conformer
+stage 5
+merge loop with core
+
+version 0.1
+	- SS bridge can be only within a single loop

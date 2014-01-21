@@ -1,0 +1,13 @@
+package base_functions;
+
+sub stdev{
+my ($nn, @values)=@_;
+for my $i (0..$nn-1){
+$sum=$sum+$values[$i];
+}
+$avg_val=$sum/$nn;
+for my $i (0..$nn-1){
+$ii=($values[$i]-$avg_val)^2;
+$sum_ii=$sum_ii+$ii;
+}
+}

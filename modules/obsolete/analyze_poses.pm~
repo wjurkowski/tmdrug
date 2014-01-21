@@ -1,0 +1,38 @@
+package analyze_poses;
+
+require Exporter;
+use vars qw(@ISA @EXPORT $VERSION);
+our @ISA = qw(Exporter);
+our @EXPORT = qw(autodock_inputs, make_autodock, make_poses);
+$VERSION=1.0;
+
+sub pose_cluster {
+my @posermsd=();
+$is_sth_lonely=1;
+for my $i (1..$nposes){push(@posermsd,"1");}
+
+foreach my $i (1..$nposes){
+	push (@klastry[$i],@cluster);
+	if($is_sth_lonely==1){
+	for $i (0..$#posermsd){
+		if ($posermsd[$i] < 0.5) {push (@cluster,$i);}
+		elsif {push (@noncluster,$i);}
+	}
+	if ($#noncluster != 0){
+		$is_sth_lonely=1;
+		for my $j (0..$#noncluster){`pr_alchem prm-RMSD $pose.$noncluster[0] $pose.$j >>pairs_RMSD`;}
+		open(RMS1, "< pairs_RMSD") or die "Can not open an input file: $!";
+		my @rmsds=<RMS1>;
+		close (RMS1);
+		chomp @rmsds;
+		my $n=0;
+		foreach my $line(@rmsds){
+		  my @values=split(/\s+/,$line);
+		  $posermsd[$n]=$values[4];
+		  $n++;
+		}
+	}
+	else {$is_sth_lonely=0;}
+	}
+}
+}
